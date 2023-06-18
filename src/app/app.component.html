@@ -1,0 +1,19 @@
+<div class="main-app">
+  <div class="header">
+    <h1 class="header-title">The Article List</h1>
+  </div>
+  <div class="app-body">
+    <app-list
+      class="article-list"
+      [listItems]="articles$ | async"
+      [isLoading]="isLoading$ | async"
+      (itemClicked)="updateSelectedArticle($event)"
+      (searchByTitle)="searchByTitle($event)"
+    ></app-list>
+    <app-article-display
+      class="article-display"
+      [displayedArticle]="selectedArticle"
+    >
+    </app-article-display>
+  </div>
+</div>

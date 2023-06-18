@@ -1,0 +1,33 @@
+<div class="list-container">
+  <div class="list-search-bar">
+    <input
+      [formControl]="searchControl"
+      type="text"
+      placeholder="Search by title..."
+    />
+  </div>
+  <ng-container *ngIf="!isLoading; else loadingBlock">
+    <ng-container *ngIf="listItems.length !== 0; else emptyListBlock">
+      <div class="list-items">
+        <div
+          class="list-item"
+          *ngFor="let listItem of listItems"
+          [ngClass]="{ selected: isItemSelected(listItem.id) }"
+          (click)="onItemClick(listItem)"
+        >
+          <h3 class="list-item-title">{{ listItem.title }}</h3>
+          <p class="list-item-subtitle">{{ listItem.subtitle }}</p>
+          <p class="list-item-body">{{ listItem.body }}</p>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #emptyListBlock>
+      <h2 class="empty-list-text">No Results.</h2>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #loadingBlock>
+    <app-loading-spinner class="list-loader"></app-loading-spinner>
+  </ng-template>
+</div>

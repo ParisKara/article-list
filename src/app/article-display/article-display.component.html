@@ -1,0 +1,19 @@
+<ng-container *ngIf="displayedArticle; else noArticleBlock">
+  <div class="article-display">
+    <h2 class="article-display-title">
+      {{ displayedArticle.title }}
+    </h2>
+    <p class="article-display-subtitle">
+      {{ displayedArticle.subtitle }}
+    </p>
+    <p class="article-display-body">
+      {{ displayedArticle.body }}
+    </p>
+  </div>
+</ng-container>
+
+<ng-template #noArticleBlock>
+  <div class="no-article-block">
+    {{ "Please select an article." }}
+  </div>
+</ng-template>

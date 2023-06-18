@@ -1,0 +1,96 @@
+@import "../shared/style-variables.scss";
+
+.list-container {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $box-shadow-light;
+}
+
+.list-search-bar {
+  height: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  margin: $gap-md;
+
+  input {
+    width: 100%;
+    border: 1px solid $primary;
+    border-radius: $border-radious-md;
+    text-indent: 0.5rem;
+    box-shadow: $box-shadow-light;
+  }
+
+  input:focus-visible {
+    outline-color: $primary;
+  }
+}
+
+.list-items {
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.list-item {
+  padding: $gap-md;
+  border: 1px solid $primary;
+  border-radius: $border-radious-md;
+  margin: $gap-md;
+  height: 4rem;
+  box-shadow: $box-shadow;
+
+  &:hover {
+    background-color: $light-primary;
+    cursor: pointer;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  &.selected {
+    background-color: $light-primary;
+  }
+}
+
+.list-item-title {
+  font-size: $font-md;
+  font-weight: $bold;
+  color: $primary-text;
+  margin: 0;
+}
+
+.list-item-subtitle {
+  font-size: $font-sm;
+  margin-top: 0;
+  margin-bottom: $gap-xs;
+  color: $secondary-text;
+}
+
+.list-item-body {
+  color: $primary-text;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.empty-list-text {
+  color: $primary-text;
+  font-weight: 600;
+  font-size: $font-md;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-loader {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
